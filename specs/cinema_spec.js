@@ -90,4 +90,35 @@ describe('Cinema', function(){
     areFilmsLongerThan = cinema.longerThan(100);
     assert.equal(areFilmsLongerThan, false);
   })
+
+  it('calculate total running time', function(){
+    cinema.addFilm(film1);
+    cinema.addFilm(film2);
+    cinema.addFilm(film3);
+    cinema.addFilm(film4);
+
+    totalRunTime = cinema.totalRunTime();
+    assert.strictEqual(totalRunTime, 480)
+  });
+
+  // EXTENSIONS //
+  it('should be able to filter films by property__genre', function() {
+    cinema.addFilm(film1);
+    cinema.addFilm(film2);
+    cinema.addFilm(film3);
+    cinema.addFilm(film4);
+
+    foundFilms = cinema.filmsByProperty('genre', 'horror');
+    assert.deepStrictEqual(foundFilms, [film2, film4]);
+  });
+  it('should be able to filter films by property__year', function() {
+    cinema.addFilm(film1);
+    cinema.addFilm(film2);
+    cinema.addFilm(film3);
+    cinema.addFilm(film4);
+
+    foundFilms = cinema.filmsByProperty('year', 1980);
+    assert.deepStrictEqual(foundFilms, [film4]);
+  });
+
 });

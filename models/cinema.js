@@ -36,4 +36,19 @@ Cinema.prototype.longerThan = function (time) {
   });
 };
 
+Cinema.prototype.totalRunTime = function () {
+  return this.films.reduce((runningTotal, film) => {
+    return runningTotal + film.length;
+  }, 0);
+};
+
+Cinema.prototype.filmsByProperty = function (property, value) {
+
+  return this.films.filter((film) => {
+
+    if (film[property]) {
+     return film[property] === value;
+     }
+  });
+};
 module.exports = Cinema;
