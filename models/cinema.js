@@ -45,7 +45,6 @@ Cinema.prototype.totalRunTime = function () {
 Cinema.prototype.filmsByProperty = function (property, value) {
 
   return this.films.filter((film) => {
-
     if (film[property]) {
      return film[property] === value;
      }

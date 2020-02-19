@@ -47,7 +47,7 @@ describe('Cinema', function(){
     cinema.addFilm(film3);
     cinema.addFilm(film4);
 
-    foundFilms = cinema.filterByGenre('horror')
+    foundFilms = cinema.filmsByProperty('genre', 'horror')
     assert.deepStrictEqual(foundFilms, [film2, film4])
   });
 
